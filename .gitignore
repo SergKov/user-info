@@ -1,0 +1,13 @@
+# Compiled class file #
+*.class
+
+# idea files #
+.idea
+*.iml
+
+# Log file #
+*.log
+
+# Package Files #
+*.jar
+*.war
