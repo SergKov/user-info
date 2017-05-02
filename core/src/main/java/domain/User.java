@@ -1,6 +1,12 @@
 package domain;
 
+import org.hibernate.validator.constraints.Email;
+
 import javax.persistence.Entity;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 /**
@@ -9,19 +15,40 @@ import java.time.LocalDateTime;
 @Entity
 public class User {
 
-    private String name;
+    @Email
+    private String email;
+
+    @NotNull
+    @Size(min = 3, max = 25)
+    private String password;
+
+    @NotNull
+    @Min(1)
+    @Max(300)
     private Integer age;
+
+    @NotNull
     private Role role;
+
+    @NotNull
     private LocalDateTime createdDateTime;
 
     public User() { }
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Integer getAge() {
