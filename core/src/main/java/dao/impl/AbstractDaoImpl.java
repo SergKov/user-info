@@ -6,6 +6,8 @@ import pagination.Pageable;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,8 +42,14 @@ public class AbstractDaoImpl<Entity> implements AbstractDao<Entity> {
     }
 
     @Override
-    public long count() { // TODO
-        return 0;
+    public long count() {
+        final CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<Long> query = builder.createQuery(Long.class);
+        query = query.select(builder.count(query.from(clazz)));
+        return em.createQuery(query).getResultList()
+                .stream()
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException(String.format("Query has returned no results for %s", clazz.getSimpleName())));
     }
 
     @Override
