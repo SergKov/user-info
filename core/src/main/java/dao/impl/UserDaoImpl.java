@@ -24,32 +24,32 @@ public class UserDaoImpl extends AbstractDaoImpl<User> implements UserDao {
     }
 
     @Override
-    public Optional<User> findById(final Long id) { // TODO
-        return null;
+    public Optional<User> findById(final Long id) {
+        return super.findById(id);
     }
 
     @Override
-    public void save(final User user) { // TODO
-
+    public void save(final User user) {
+        super.save(user);
     }
 
     @Override
-    public void update(final User user) { // TODO
-
+    public void update(final User user) {
+        super.update(user);
     }
 
     @Override
-    public long count() { // TODO
-        return 0;
+    public long count() {
+        return super.count();
     }
 
     @Override
-    public List<User> findAll(final Pageable pageable) { // TODO
-        return null;
+    public List<User> findAll(final Pageable pageable) {
+        return super.findAll(pageable);
     }
 
     @Override
-    public void remove(final User user) { // TODO
-
+    public void remove(final User user) {
+        super.remove(user);
     }
 }
