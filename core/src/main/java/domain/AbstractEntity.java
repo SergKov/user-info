@@ -8,13 +8,13 @@ import javax.persistence.MappedSuperclass;
  * Created by koval on 5/1/2017.
  */
 @MappedSuperclass
-public abstract class AbstractUser {
+public abstract class AbstractEntity {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    public AbstractUser() { }
+    public AbstractEntity() { }
 
     public Long getId() {
         return id;

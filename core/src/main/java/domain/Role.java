@@ -1,9 +1,23 @@
 package domain;
 
-/**
- * Created by koval on 5/1/2017.
- */
-public enum Role {
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import java.util.List;
 
-    USER, ADMIN
+/**
+ * Created by koval on 5/7/2017.
+ */
+@Entity
+public class Role extends AbstractEntity {
+
+    @ManyToMany
+    private List<User> user;
+
+    public List<User> getUser() {
+        return user;
+    }
+
+    public void setUser(List<User> user) {
+        this.user = user;
+    }
 }

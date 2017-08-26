@@ -3,10 +3,12 @@ package domain;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Created by koval on 5/1/2017.
@@ -25,8 +27,8 @@ public class User {
     @Max(300)
     private Integer age;
 
-    @NotNull
-    private Role role;
+    @ManyToMany
+    private List<Role> roles;
 
     @NotNull
     private LocalDateTime createdDateTime;
@@ -57,12 +59,12 @@ public class User {
         this.age = age;
     }
 
-    public Role getRole() {
-        return role;
+    public List<Role> getRoles() {
+        return roles;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     public LocalDateTime getCreatedDateTime() {
