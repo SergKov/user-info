@@ -1,6 +1,6 @@
 package dao;
 
-import pagination.Pageable;
+import pagination.Page;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +18,7 @@ public interface AbstractDao<Entity> {
 
     long count();
 
-    List<Entity> findAll(Pageable pageable);
+    List<Entity> findAll(Page pageable);
 
     void remove(Entity entity);
 }
