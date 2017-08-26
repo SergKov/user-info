@@ -11,13 +11,13 @@ import java.util.List;
 public class Role extends AbstractEntity {
 
     @ManyToMany
-    private List<User> user;
+    private List<User> users;
 
-    public List<User> getUser() {
-        return user;
+    public List<User> getUsers() {
+        return users;
     }
 
-    public void setUser(List<User> user) {
-        this.user = user;
+    public void setUser(List<User> users) {
+        this.users = users;
     }
 }
